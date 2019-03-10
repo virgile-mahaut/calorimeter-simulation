@@ -26,4 +26,4 @@ In practice, a simplified calorimeter will be used. The electron and hadron show
 - [Code description](./doc/code_description.md)
 - [Simulation](./doc/simulation.md)
 - [S shape distribution](./doc/calo_sshape.md)
-- Electron-pion discrimination
+- [Electron-pion discrimination](./doc/calo_discrimination.md)
