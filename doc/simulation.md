@@ -137,7 +137,7 @@ It is assumed that electrons arrives perpendicularly through the front end of th
 
 We choose to parameterize the longitudinal development of the shower with:
 ```
-dE/dt ~ (bt)a-1e-bt
+dE/dt ~ (bt)^(a-1)e^(-bt)
 ```
 where t=z/X0, X0 being the radiation length. We choose X0 to be 1cm, a=4 and b=0.5. The maximum of the function is reached for t=(a-1)/b. For the transverse development, we choose to use simply a gaussian of width MR=5cm (Moliere Radius).
 
