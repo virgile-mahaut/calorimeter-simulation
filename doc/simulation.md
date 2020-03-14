@@ -137,9 +137,9 @@ It is assumed that electrons arrives perpendicularly through the front end of th
 
 We choose to parameterize the longitudinal development of the shower with:
 ```
-dE/dt ~ (bt)^(a-1)e^(-bt)
+dE/dt = E0 b (bt)^(a-1)e^(-bt) / Gamma(a)
 ```
-where t=z/X0, X0 being the radiation length. We choose X0 to be 1cm, a=4 and b=0.5. The maximum of the function is reached for t=(a-1)/b. For the transverse development, we choose to use simply a gaussian of width MR=5cm (Moliere Radius).
+where `t=z/X0`, `X0` being the radiation length and `Gamma` is the Gamma function. We choose `X0` to be 1cm, `a=4` and `b=0.5`. The maximum of the function is reached for `t=(a-1)/b`. For the transverse development, we choose to use simply a gaussian of width `MR=5cm` (Moliere Radius).
 
 The simulation occurs in the CaloSimulation class, which template is included in CaloSimulation.h. Write the simulation of the electromagnetic shower in the method `SimulateShower()`: generate the energy deposit according the the shower parametrisation defined above and accumulate the energy deposit in the corresponding calorimeter cells. To this end, you will make the most of your knowledge of the Monte Carlo method. You will also need to employ the functionality of the CaloGeometry class.
 
