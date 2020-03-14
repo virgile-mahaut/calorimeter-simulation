@@ -6,7 +6,7 @@
 - `reconstruct.cxx`: reconstruction (in the skeleton, the measured energy is drawn from a distribution centered around the "true" value). You will have to heavily develop this file.
 - `CaloConstants.h`: list of useful definitions. You will probably have to modify a bit this file later. Not needed until next step.
 - `CaloCell.h`: represent a cell in the calorimeter. The corresponding implementation file (.cxx) has to be written.
-- `CaloGeometry.h: implements the geometry of the calorimeter. The corresponding implementation file (.cxx) has to be written.
+- `CaloGeometry.h`: implements the geometry of the calorimeter. The corresponding implementation file (.cxx) has to be written.
 - `CaloSimulation.h`: proceeds to the simulation of the calorimeter. The corresponding implementation file (.cxx) has to be written.
 - `Makefile`: file driving the compilation. Modify really carefully.
 - `ana_simu.cxx`: can be used to develop the analysis of your results (graphs...).
