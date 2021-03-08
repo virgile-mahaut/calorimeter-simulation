@@ -18,7 +18,6 @@ cd calorimeter-simulation/
 git remote rename origin upstream
 * ```
 * Go to [gitlab](https://gitlab.lal.in2p3.fr) and create a new project named `calorimeter-simulation`.
-* ```
 * @note PLEASE, invite Florent Robinet as a member of your project: got to "members" and add Florent Robinet as a "developer"
 *
 * Add this `origin` remote to your local repository:
@@ -38,21 +37,41 @@ upstream	https://gitlab.in2p3.fr/npac/calorimeter-simulation.git (push)
 * Then push the changes to your remote repo using:
 * ```
 git push origin master
+git pull upstream master && git push origin master
 * ```
 * Now, your project is in place in gitlab. You can check it at https://gitlab.lal.in2p3.fr/robinet/calorimeter-simulation
 *
 * @subsection environment_git_worflow Git workflow
+*
+* @subsubsection environment_git_worflow_commit Commit your changes
 *
 * When you develop your code, you should frequently commit and push your changes to your remote repository:
 * ```
 # commit your changes to your local repository:
 git commit -a
 
-# push your changes to your origin repository
+# push your changes to your origin repository:
 git push origin
 * ```
 * Your remote repository will be used to control and evaluate your work.
 * 
+* @subsubsection environment_git_worflow_add Add new files
+*
+* If you want to add a new file to your repository:
+* ```
+git add [new file]
+git commit [new file]
+* ```
+*
+* @subsubsection environment_git_worflow_upstream Synchronize with upstream
+*
+* When a the original repository is updated (by F. Robinet), you may want to update your repository to synchronize the changes:
+* ```
+git fetch upstream
+git merge upstream/master origin/master
+git push
+* ```
+*
 * @section environment_conda Conda environment 
 *
 * For this project, it is assumed that the [Anaconda](https://www.anaconda.com/) environment is installed on your machine.
