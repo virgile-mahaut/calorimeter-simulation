@@ -52,7 +52,6 @@ git commit -a
 git push origin
 * ```
 * Your remote repository will be used to control and evaluate your work.
-*
 * 
 * @section environment_conda Conda environment 
 *
