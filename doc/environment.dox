@@ -1,0 +1,62 @@
+/*! @page environment Environment
+*
+* @tableofcontents
+*
+* @section environment_git GIT / GitLab
+*
+* Your computer project will be managed using git.
+*
+* @subsection environment_git_repo Git repository
+*
+* The original project should be cloned to your local computer:
+* ```
+git clone https://gitlab.in2p3.fr/npac/calorimeter-simulation.git
+* ```
+* This repository must be redefined as the `upstream` project:
+* ```
+cd calorimeter-simulation/
+git remote rename origin upstream
+* ```
+* Go to [gitlab](https://gitlab.lal.in2p3.fr) and create a new project named `calorimeter-simulation`.
+* ```
+* @note PLEASE, invite Florent Robinet as a member of your project: got to "members" and add Florent Robinet as a "developer"
+*
+* Add this `origin` remote to your local repository:
+* ```
+git remote add origin git@gitlab.lal.in2p3.fr:robinet/calorimeter-simulation.git
+* ```
+* @note Change `robinet` by your username. This assumes that a ssh key is in place.
+*
+* Now you should see 2 remote repositories:
+* ```
+git remote -v
+origin	git@gitlab.lal.in2p3.fr:robinet/calorimeter-simulation.git (fetch)
+origin	git@gitlab.lal.in2p3.fr:robinet/calorimeter-simulation.git (push)
+upstream	https://gitlab.in2p3.fr/npac/calorimeter-simulation.git (fetch)
+upstream	https://gitlab.in2p3.fr/npac/calorimeter-simulation.git (push)
+* ```
+* Then push the changes to your remote repo using:
+* ```
+git push origin master
+* ```
+* Now, your project is in place in gitlab. You can check it at https://gitlab.lal.in2p3.fr/robinet/calorimeter-simulation
+*
+* @subsection environment_git_worflow Git workflow
+*
+* When you develop your code, you should frequently commit and push your changes to your remote repository:
+* ```
+# commit your changes to your local repository:
+git commit -a
+
+# push your changes to your origin repository
+git push origin
+* ```
+* Your remote repository will be used to control and evaluate your work.
+*
+* 
+* @section environment_conda Conda environment 
+*
+* For this project, it is assumed that the [Anaconda](https://www.anaconda.com/) environment is installed on your machine.
+* You can also refer to the [NPAC computing course](https://ens.lal.in2p3.fr/NPAC/env_initialisation.html#execution-environment).
+*
+*/
