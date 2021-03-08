@@ -53,10 +53,13 @@ origin	git@gitlab.lal.in2p3.fr:robinet/calorimeter-simulation.git (push)
 upstream	https://gitlab.in2p3.fr/npac/calorimeter-simulation.git (fetch)
 upstream	https://gitlab.in2p3.fr/npac/calorimeter-simulation.git (push)
 * ```
-* Then push the changes to your remote repo using:
+* Your local branch must be associated to your origin:
+* ```
+git push --set-upstream origin master
+* ```
+* Finally push the changes to your remote repo using:
 * ```
 git push origin master
-git pull upstream master && git push origin master
 * ```
 * Now, your project is in place in gitlab. You can check it at https://gitlab.lal.in2p3.fr/robinet/calorimeter-simulation.
 * @warning For this project, 2 students will share the same remote repository.
