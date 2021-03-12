@@ -25,7 +25,7 @@ conda deactivate
 * Your computer project will be managed using git.
 * For each pair of student <u>only one code repository</u> should be created.
 *
-* @subsection environment_git_repo Git repository (STUDENT 1)
+* @subsection environment_git_repo1 Git repository (STUDENT 1)
 *
 * The original project should be cloned to your local computer:
 * ```
@@ -69,17 +69,17 @@ git push origin master
 *
 * @subsection environment_git_worflow Git workflow
 *
-* @subsection environment_git_repo Git repository (STUDENT 2)
+* @subsection environment_git_repo2 Git repository (STUDENT 2)
 *
 * For the second student, the situation is simpler.
 * First, you just have to clone the repository initialized by your team partner:
 * ```
-git clone git@gitlab.lal.in2p3.fr:[partner]/gravitational-waves.git
+git clone git@gitlab.lal.in2p3.fr:[partner]/calorimeter-simulation.git
 * ```
 * Replace `[partner]` by you partner username.
 * Then you need to add an upstream remote to get project updates:
 * ```
-git remote add upstream https://gitlab.in2p3.fr/npac/gravitational-waves.git
+git remote add upstream https://gitlab.in2p3.fr/npac/calorimeter-simulation.git
 * ```
 * That's it, you are ready to work.
 *
