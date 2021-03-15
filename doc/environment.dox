@@ -67,8 +67,6 @@ git push origin master
 * @warning For this project, 2 students will share the same remote repository.
 * Therefore the creation of the remote gitlab project should only be done once, by one of the student.
 *
-* @subsection environment_git_worflow Git workflow
-*
 * @subsection environment_git_repo2 Git repository (STUDENT 2)
 *
 * For the second student, the situation is simpler.
@@ -82,6 +80,8 @@ git clone git@gitlab.lal.in2p3.fr:[partner]/calorimeter-simulation.git
 git remote add upstream https://gitlab.in2p3.fr/npac/calorimeter-simulation.git
 * ```
 * That's it, you are ready to work.
+*
+* @subsection environment_git_worflow Git workflow
 *
 * @subsubsection environment_git_worflow_commit Commit your changes
 *
