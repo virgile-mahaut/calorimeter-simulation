@@ -77,6 +77,7 @@ git clone git@gitlab.lal.in2p3.fr:[partner]/calorimeter-simulation.git
 * Replace `[partner]` by you partner username.
 * Then you need to add an upstream remote to get project updates:
 * ```
+cd calorimeter-simulation/
 git remote add upstream https://gitlab.in2p3.fr/npac/calorimeter-simulation.git
 * ```
 * That's it, you are ready to work.
