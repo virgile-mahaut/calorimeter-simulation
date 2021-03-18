@@ -2,20 +2,19 @@
 #define Event_h
 
 /**
- * Event
- * Describes an event.
+ * @bried Event class.
+ * @details This class describes an event.
  */
-
-class Event
-{
+class Event {
+  
 private:
-    int       m_eventNumber ; // event number
-    float     m_eTrue ; // true energy
-    float     m_eReco ; // reconstructed energy
+    int       m_eventNumber ; ///< event number.
+    float     m_eTrue ;       ///< true energy.
+    float     m_eReco ;       ///< reconstructed energy.
 
 public:
-    Event(); // constructor
-    virtual ~Event(); // destructor
+    Event(); ///< Constructor.
+    virtual ~Event(); ///< Destructor.
 
     void build(int eventNumber); // initialize
 
