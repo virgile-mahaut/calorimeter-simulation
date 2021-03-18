@@ -74,4 +74,7 @@ X=\frac{\sum(x_i E_i\alpha \log(E_i)\beta)}{\sum(E_i\alpha \log(E_i)\beta)},
 * 2. A high proportion (10%) of dead cell are present in the calorimeter (the energy deposition is the then null in these cells).
 * The dead cells are the same for all events.
 * Re-evaluate also the resolutions.
+*
+* @ref simulation "PREVIOUS" - @ref calo_discrimination "NEXT"
+*
 */

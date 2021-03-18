@@ -32,4 +32,7 @@
 * 5. Introduce a new variable in `Event.h` (and `Event.cxx` ): `eRecoBias` fixed to be equal to `eReco`+0.1 GeV in `reconstruct.cxx`.
 * 6. Fit `eRecoBias-eTrue`
 * 7. Do you find the 0.1 GeV bias back?
+*
+* @ref calo_description "PREVIOUS" - @ref simulation "NEXT"
+*
 */

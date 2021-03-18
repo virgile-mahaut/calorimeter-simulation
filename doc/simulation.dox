@@ -215,5 +215,8 @@ int main () // Simulation of a high score list
 * This reconstructed energy will be employed to calculate the energy deposit in the cells. 
 *
 * The other terms of the calorimeter simulation, \f$b\f$ and \f$c\f$, are due to inhomogeneities of the calorimeter and to the electronic noise.
-* These terms are smaller that the stochastic term a and they will be neglected for this simulation. 
+* These terms are smaller that the stochastic term a and they will be neglected for this simulation.
+*
+* @ref code_description "PREVIOUS" - @ref calo_sshape "NEXT"
+*
 */

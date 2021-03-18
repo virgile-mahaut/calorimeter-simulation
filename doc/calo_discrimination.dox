@@ -65,4 +65,6 @@ X_e(x_1,...,x_n) = \frac{\Lambda_e(x_1,...,x_n)}{\Lambda_e(x_1,...,x_n) + \Lambd
 * \f]
 * - From the two previously parametrized variables, build this new variable and study its rejection.
 * - Other variables can be searched for and added to study if they improve the result. 
+*
+* @ref calo_sshape "PREVIOUS"
 */
