@@ -104,7 +104,7 @@ hGauss->Fit("gaus")
 *
 * The calorimeter cell and its energy are represented by the `CaloCell` class, which template is given in `CaloCell.h`.
 *
-* 3. Write the corresponding file `CallCell.cxx` as well as a small test program that calls the various constructors and class methods. 
+* 3. Write the corresponding file `CaloCell.cxx` as well as a small test program that calls the various constructors and class methods. 
 *
 * Finally, we have chosen to gather the various utility functions related to the calorimeter geometry in a single class called CaloGeometry.
 * The functions are defined in `CaloGeometry.h` but still need to be implemented.
