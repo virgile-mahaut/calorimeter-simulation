@@ -1,0 +1,59 @@
+/*! @mainpage Calorimeter Simulation
+*
+* @tableofcontents
+*
+* @section main_contributors Contributors
+*
+* - <a href="mailto:florent.robinet@ijclab.in2p3.fr">Florent Robinet</a>
+* - Yasmine Amhis
+* - Antoine Laudrain
+* - Aurelien Martens
+*
+* @section main_scope Scope of the project
+*
+* The goal of the computer project is to build a 3-step project as done in many experiments in particle physics:
+*
+* - Monte-Carlo simulation
+* - Reconstruction
+* - Particule identification
+*
+* In practice, a simplified calorimeter is used.
+* The electron and hadron showers are simulated via Monte-Carlo simulation technics.
+* The second step is to reconstruct the particles in the calorimeter and to study their performance (S shape, energy resolution...).
+* The last step of the project is to identify variables to discriminate electrons (signal) and hadrons (background).
+*
+* @section main_documentation Documentation
+*
+* [ROOT](https://root.cern/) libraries are used as a toolbox to perform the analysis.
+* See also the [C++ class documentation](https://root.cern.ch/doc/master/index.html)
+*
+* @section main_evaluation Evaluation
+*
+* The computer project is evaluated with the following criteria:
+* - code (14/20)
+*   - implementation of the methods (7/20)
+*   - diagnostic plots to check that the code is producing sane results (4/20)
+*   - code optimization (1/20)
+*   - code cleanliness and documentation (2/20)
+* - final presentation (6/20)
+*
+* In your final presentation you should:
+* - describe the project and the methods
+* - explain your choices to implement the methods in your code
+* - show snippets of code to explain your implementation
+* - show diagnostic plots to prove your code is working as expected
+*
+* @section main_environment Environment
+*
+* For this project, you will have to install some software on your computer.
+* Follow the instruction on @ref environment "this page".
+*
+* @section main_description Project description
+*
+* 1. @ref calo_description "Calorimeter description"
+* 2. @ref code_description "Code description"
+* 3. @ref simulation "Simulation"
+* 4. @ref calo_sshape "S shape distribution"
+* 5. @ref calo_discrimination "Electron-pion discrimination"
+*/
+

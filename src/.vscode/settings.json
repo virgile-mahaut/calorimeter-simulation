@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "ana.C": "cpp",
+    "genGauss.C": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "disabled"
+}

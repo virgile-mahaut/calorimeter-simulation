@@ -1,0 +1,11 @@
+# Misc edition
+*~
+*.bak
+
+# Binaries and libraries
+*.o
+*.a
+
+# Build
+bin/
+obj/
