@@ -26,11 +26,11 @@ bool CaloGeometry::IsInside(double xyz[3], CellAddress& cellAddress)
 //______________________________________________________________________________
 double CaloGeometry::xCentre(const CellAddress& cellAddress)
 {
-  return cellAddress.ix();
+  return XYMin + float(cellAddress.ix() + 1) * (XYMax - XYMin) / float(NbCellsInXY);
 }
 
 //______________________________________________________________________________
 double CaloGeometry::yCentre(const CellAddress& cellAddress)
 {
-  return cellAddress.iy();
+  return XYMin + float(cellAddress.iy() + 1) * (XYMax - XYMin) / float(NbCellsInXY);
 }

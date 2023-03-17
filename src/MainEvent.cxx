@@ -39,6 +39,7 @@ void simulate(Event& event);
 void ana_simu(const Event& event);
 
 void test();
+void testSimu();
 
 //______________________________________________________________________________
 int main(int argc, char **argv)
@@ -72,6 +73,7 @@ int main(int argc, char **argv)
     outTree.Branch("eRecoBias", &eRecoBias);
     
     test();
+    testSimu();
 
     // Create a dummy event that will be build in the loop.
     Event event;

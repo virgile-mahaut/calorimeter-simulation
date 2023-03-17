@@ -48,17 +48,16 @@ void test()
 
   // check whether CaloGeometry class works well
   double xyz[3] = {1., 30., 1.};
-  CaloGeometry calo_geo;
+  CellAddress cell_address_geo;
+  cout << "cell_address_geo: " << cell_address_geo;
   cout << "xyz = [" << xyz[0] << ", " << xyz[1] << ", " << xyz[2] << "]" << endl;
-  cout << "calo_geo.IsInside(xyz, cell_address_valid) (bool):" << calo_geo.IsInside(xyz, cell_address_valid) << endl;
-  cout << "cell_address_valid: " << cell_address_valid << endl;
+  cout << "CaloGeometry::IsInside(xyz, cell_adress_geo) (bool):" << CaloGeometry::IsInside(xyz, cell_address_geo) << endl;
+  cout << "cell_address_geo: " << cell_address_geo << endl;
 
   xyz[2] = 0.;
   cout << "xyz = [" << xyz[0] << ", " << xyz[1] << ", " << xyz[2] << "]" << endl;
-  cout << "calo_geo.IsInside(xyz, cell_address_valid) (bool):" << calo_geo.IsInside(xyz, cell_address_valid) << endl;
-  cout << "cell_address_valid: " << cell_address_valid << endl;
-  cout << "calo_geo.xCentre(cell_address_valid): " << calo_geo.xCentre(cell_address_valid) << endl;
-  cout << "calo_geo.yCentre(cell_address_valid): " << calo_geo.yCentre(cell_address_valid) << endl;
-
-
+  cout << "CaloGeometry::IsInside(xyz, cell_address_geo) (bool):" << CaloGeometry::IsInside(xyz, cell_address_geo) << endl;
+  cout << "cell_address_geo: " << cell_address_geo << endl;
+  cout << "CaloGeometry::xCentre(cell_address_geo): " << CaloGeometry::xCentre(cell_address_geo) << endl;
+  cout << "CaloGeometry::yCentre(cell_address_geo): " << CaloGeometry::yCentre(cell_address_geo) << endl;
 }
