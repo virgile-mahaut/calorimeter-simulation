@@ -17,22 +17,25 @@ public:
 	CaloSimulation();
 
 	// Add the calorimeter cells to the vector of cell caldata.
-	// TODO: to be implemented.
-	void CalorimeterData(std::vector<CaloCell>& caldata);
+	void CalorimeterData(std::vector<CaloCell>& caldata) const;
 
 	// Simulate a shower of a given energy, starting from the impact point (x,y)
 	// of the electron at the front end of the calorimeter.
-	// TODO: to be implemented.
 	void SimulateShower(float x, float y, float energy);
 
 	// Print all the cells.
-	// TODO: to be implemented.
-	friend std::ostream& operator<<(std::ostream& os, const CaloSimulation& cs);
+	friend std::ostream& operator<<(std::ostream& os, const CaloSimulation& cs)
+	{
+  	std::vector<CaloCell> caldata;
+  	cs.CalorimeterData(caldata);
+  	for (long unsigned int i=0; i<caldata.size(); i++)
+  	{
+    	os << caldata.at(i).address() << ", " << caldata.at(i).energy() << "\n";
+  	}
+	return os;
+	}
 
-	// accessors
-	std::vector<CaloCell> calData();
-
-private: // TODO: to be completed.
+private:
 	std::vector<CaloCell> m_caldata; // vector of all cells in the computation
 };
 

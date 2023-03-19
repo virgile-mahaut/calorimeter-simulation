@@ -20,6 +20,7 @@ public:
 
 	// Accessors.
 	float energy() const;
+	float energy_rec() const;
 	CellAddress address() const;
 
 	// "Print" function.
@@ -30,8 +31,9 @@ public:
 	}
 
 private:
-	float m_energy;
-	CellAddress m_address;
+	float m_energy;        ///< true energy of the cell
+	float m_energy_rec;    ///< reconstructed energy of the cell (gaussian fluctuation)
+	CellAddress m_address; ///< address of the cell
 
 };
 

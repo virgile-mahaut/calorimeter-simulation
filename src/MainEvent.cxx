@@ -28,6 +28,8 @@
 #include "TRandom3.h"
 #include "TTree.h"
 #include "TStopwatch.h"
+#include "TH1F.h"
+#include "TH2F.h"
 
 #include "CellAddress.h"
 #include "Event.h"
@@ -35,11 +37,13 @@
 using namespace std;
 
 void reconstruct(Event& event);
+void reconstruct_barycentre(Event& event);
 void simulate(Event& event);
 void ana_simu(const Event& event);
 
 void test();
 void testSimu();
+void make_histogram(Event& event);
 
 //______________________________________________________________________________
 int main(int argc, char **argv)
@@ -67,10 +71,19 @@ int main(int argc, char **argv)
     float eTrue;
     float eReco;
     float eRecoBias;
+    float xRecoFitEfficiency;
+    float yRecoFitEfficiency;
+    float xRecoBarEfficiency;
+    float yRecoBarEfficiency;
     outTree.Branch("eventNumber", &eventNumber);
     outTree.Branch("eTrue", &eTrue);
     outTree.Branch("eReco", &eReco);
     outTree.Branch("eRecoBias", &eRecoBias);
+    outTree.Branch("xRecoFitEfficiency", &xRecoFitEfficiency);
+    outTree.Branch("xRecoBarEfficiency", &xRecoBarEfficiency);
+    outTree.Branch("yRecoFitEfficiency", &yRecoFitEfficiency);
+    outTree.Branch("yRecoBarEfficiency", &yRecoBarEfficiency);
+
     
     test();
     testSimu();
@@ -92,13 +105,23 @@ int main(int argc, char **argv)
         simulate(event);
         ana_simu(event);
 
+        // Test simulation (shower development)
+        if (eventNumber == 0) {
+            make_histogram(event);
+        }
+
         // reconstruction
-        reconstruct(event);
+        // reconstruct(event);
+        reconstruct_barycentre(event);
 
         // Prepare to fill the output tree.
         eTrue = event.eTrue();
         eReco = event.eReco();
         eRecoBias = event.eRecoBias();
+        // xRecoFitEfficiency = event.xReco() - event.x();
+        // yRecoFitEfficiency = event.yReco() - event.y();
+        xRecoBarEfficiency = event.xRecoBar() - event.x();
+        yRecoBarEfficiency = event.yRecoBar() - event.y();
         outTree.Fill(); // Fill the tree.
     } // End event loop
 
