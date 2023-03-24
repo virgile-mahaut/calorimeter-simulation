@@ -15,10 +15,10 @@ Event::~Event()
 //______________________________________________________________________________
 void Event::build(int eventNumber)
 {
-    // set event number
-    m_eventNumber = eventNumber;
+  // set event number
+  m_eventNumber = eventNumber;
 
-    // initialize data member to invalid values
-    m_eTrue = -999.;
-    m_eReco = -999.;
+  // initialize data member to invalid values
+  m_eTrue = -999.;
+  m_eReco = -999.;
 }

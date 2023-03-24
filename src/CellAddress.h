@@ -12,47 +12,47 @@
 class CellAddress
 {
 public:
-	// Default constructor, gives you an invalid address.
-	CellAddress();
+  // Default constructor, gives you an invalid address.
+  CellAddress();
 
-	// Full constructor.
-	CellAddress(int ix, int iy, int layer);
+  // Full constructor.
+  CellAddress(int ix, int iy, int layer);
 
-	// Is the address valid.
-	bool IsValid() const;
+  // Is the address valid.
+  bool IsValid() const;
 
-	// Accessors.
-	int ix() const;
-	int iy() const;
-	int layer() const;
+  // Accessors.
+  int ix() const;
+  int iy() const;
+  int layer() const;
 
-	// This defines comparator between two CellAddress. This is necessary for
-	// some container types of the standard template library (std).
-	bool operator<(const CellAddress& x) const
-	{
-		if (x.m_iy == this->m_iy && x.m_ix == this->m_ix) return (this->m_layer < x.m_layer);
-		if (x.m_ix == this->m_ix) return (this->m_iy < x.m_iy);
-		return (this->m_ix < x.m_ix);
-	}
+  // This defines comparator between two CellAddress. This is necessary for
+  // some container types of the standard template library (std).
+  bool operator<(const CellAddress& x) const
+  {
+    if (x.m_iy == this->m_iy && x.m_ix == this->m_ix) return (this->m_layer < x.m_layer);
+    if (x.m_ix == this->m_ix) return (this->m_iy < x.m_iy);
+    return (this->m_ix < x.m_ix);
+  }
 
-	bool operator>(const CellAddress& x) const
-	{
-		if (x.m_iy == this ->m_iy && x.m_ix == this->m_ix) return (this->m_layer > x.m_layer);
-		if (x.m_ix == this->m_ix) return (this->m_iy > x.m_iy);
-		return (this->m_ix > x.m_ix);
-	}
+  bool operator>(const CellAddress& x) const
+  {
+    if (x.m_iy == this ->m_iy && x.m_ix == this->m_ix) return (this->m_layer > x.m_layer);
+    if (x.m_ix == this->m_ix) return (this->m_iy > x.m_iy);
+    return (this->m_ix > x.m_ix);
+  }
 
-	// Display cell address content.
-	friend std::ostream& operator<<(std::ostream& os, const CellAddress& y)
-	{
-		os << "(" << y.ix() << ", " << y.iy() << ", " << y.layer() << ")";
-		return os;
-	}
+  // Display cell address content.
+  friend std::ostream& operator<<(std::ostream& os, const CellAddress& y)
+  {
+    os << "(" << y.ix() << ", " << y.iy() << ", " << y.layer() << ")";
+    return os;
+  }
 
 private:
-	int m_ix;
-	int m_iy;
-	int m_layer;
+  int m_ix;
+  int m_iy;
+  int m_layer;
 
 };
 

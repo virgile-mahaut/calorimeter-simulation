@@ -9,6 +9,11 @@ float Gauss(float x, float mean, float sigma)
   return exp( - pow((x - mean) / sigma, 2) / 2) / (sigma * sqrt(2 * TMath::Pi()));
 }
 
+/**
+ * @brief generates a random gaussian distribution using Monte Carlo method
+ * 
+ * @param h histogram where the gaussian distribution is stored
+ */
 void genGauss(TH1F *h)
 {
   // Computes using Monte Carlo method a gaussian distribution of mean=0 and sigma=0.5 over
@@ -30,6 +35,11 @@ void genGauss(TH1F *h)
   delete rand;
 }
 
+/**
+ * @brief Draw on a same canvas (hGauss) the gaussian distribution from our Monte Carlo estimation 
+ * as well as the gaussian distribution obtained from TRandom::Gaus()
+ * 
+ */
 void comparison()
 {
   // Display on the same canvas the gaussian distributions respectively obtained thanks to 

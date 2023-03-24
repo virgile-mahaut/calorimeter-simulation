@@ -11,26 +11,14 @@
 using namespace CalConst;
 using namespace std;
 
-TF1* fit(float E_layer, float posReco)
-{
-  TF1 *gauss_fun = new TF1("fgauss", "[0] * TMath::Gaus(x, [1], [2], 1)", XYMin, XYMax);
-  gauss_fun->SetParameter(0, E_layer);
-  gauss_fun->SetParameter(1, posReco);
-  gauss_fun->SetParameter(2, Rm);
-  gauss_fun->SetParName(0, "E_layer");
-  gauss_fun->SetParName(1, "posReco");
-  gauss_fun->SetParName(2, "Sigma");
-
-  return gauss_fun;
-}
-
 /**
  * @brief This function generates the reconstructed parameters.
  * @details The reconstructed energy `eReco` is obtained by smearing the true value `eTrue`. 
  * A random generator is used to draw a random value with +/- 0.5 GeV areound the true value.
+ * The impact position is reconstructed using the gaussian fit method
  * @param[in] event Event object.
  */
-void reconstruct(Event& event)
+void reconstruct_fit(Event& event)
 {
   TRandom3 *rand = new TRandom3(0);
   float e = event.eTrue(); // get true energy
@@ -45,29 +33,35 @@ void reconstruct(Event& event)
   std::vector<CaloCell> caldata = event.calData();
   float maxE = -1;
   float max_index = -1;
-  float E_layer = 0;
+  float E_tot = 0;
   for (long unsigned int i=0; i<caldata.size(); i++) // treat all the cells
   {
     if (caldata.at(i).energy_rec() > maxE){ // cell with maximum value
       maxE = caldata.at(i).energy_rec();
       max_index = i;
     }
-    E_layer += caldata.at(i).energy_rec();
+    E_tot += caldata.at(i).energy_rec();
+    // std::cout << "[ " << caldata.at(i).address().ix() + 1 << ", " << caldata.at(i).energy_rec() << " ]\n";
     hx.AddBinContent(caldata.at(i).address().ix() + 1, caldata.at(i).energy_rec());
     hy.AddBinContent(caldata.at(i).address().iy() + 1, caldata.at(i).energy_rec());
   }
-  TF1 *fun_gauss_x = fit(E_layer, CaloGeometry::xCentre(caldata.at(max_index).address()));
-  TF1 *fun_gauss_y = fit(E_layer, CaloGeometry::yCentre(caldata.at(max_index).address()));
+  TF1 *fun_gauss_x = new TF1("fgauss_x", "gaus", XYMin, XYMax);
+  TF1 *fun_gauss_y = new TF1("fgauss_y", "gaus", XYMin, XYMax);
+  fun_gauss_x->SetParameters(E_tot, CaloGeometry::xCentre(caldata.at(max_index).address()), EM_Rm);
+  fun_gauss_y->SetParameters(E_tot, CaloGeometry::xCentre(caldata.at(max_index).address()), EM_Rm);
   hx.Fit(fun_gauss_x, "Q");
   hy.Fit(fun_gauss_y, "Q");
-  float xReco = fun_gauss_x->GetParameter("posReco");
-  float yReco = fun_gauss_y->GetParameter("posReco");
+  float xReco = fun_gauss_x->GetParameter("Mean");
+  float yReco = fun_gauss_y->GetParameter("Mean");
   if (event.eventNumber()==0){
-    TCanvas *cx = new TCanvas("cx");
+    // show the fits for the first reconstructed event
+    TCanvas *cx = new TCanvas("canvas_x_fit_reco");
+    hx.Write();
     hx.Draw();
     cx->Update();
     cx->Write();
-    TCanvas *cy = new TCanvas("cy");
+    TCanvas *cy = new TCanvas("canvas_y_fit_reco");
+    hy.Write();
     hy.Draw();
     cy->Update();
     cy->Write();
@@ -76,6 +70,13 @@ void reconstruct(Event& event)
   event.setyReco(yReco);
 }
 
+/**
+ * @brief This function generates the reconstructed parameters.
+ * @details The reconstructed energy `eReco` is obtained by smearing the true value `eTrue`. 
+ * A random generator is used to draw a random value with +/- 0.5 GeV areound the true value.
+ * The impact position is reconstructed using the barycentre method
+ * @param[in] event Event object.
+ */
 void reconstruct_barycentre(Event& event)
 {
   TRandom3 *rand = new TRandom3(0);
